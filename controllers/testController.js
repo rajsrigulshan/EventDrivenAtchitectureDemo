@@ -7,7 +7,7 @@ export const generateTestData=(req,res)=>{
         console.log("Generating Test Data....")
         console.log("TIME: "+Date.now())
         const jsonArray=[];
-        for(let i=0;i<20000;i++){
+        for(let i=0;i<100000;i++){
             const jsonObj={
                 name:faker.person.fullName(),
                 email:faker.internet.email(),
@@ -19,7 +19,11 @@ export const generateTestData=(req,res)=>{
         console.log("TIME: "+Date.now())
         console.log(jsonArray.length);
         console.log("Test Data Generation Completed")
-        const jsonString= JSON.stringify(jsonArray,null,2);
+        const jsonPostData={
+            tableName:"user",
+            data:jsonArray
+        }
+        const jsonString= JSON.stringify(jsonPostData,null,2);
         try {
             fs.writeFile('testOutput.json',jsonString,(err)=>{
                 if(err){
