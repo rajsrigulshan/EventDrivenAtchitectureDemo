@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "db reset": "npx prisma migrate reset"
   },
   "keywords": [
     "EDA",
@@ -24,6 +25,7 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
     "jsonwebtoken": "^9.0.2",
     "validator": "^13.12.0"
   }

@@ -3,11 +3,17 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import userRouter from './routes/userRoutes.js';
 import generateDataRouter from './routes/testRoutes.js';
+import appConst from './constants/applicationConstants.js';
+import globalRateLimit from './middleware/globalRateLimiter.js';
 
 const app =express();
 
+
+app.use(globalRateLimit);
+
 //regular middleware
-app.use(express.json());
+
+app.use(express.json({limit:appConst.EXPRESS_MAX_SIZE_JSON}));
 app.use(express.urlencoded({extended:true}));
 
 //cookie middleware
