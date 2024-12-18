@@ -6,8 +6,9 @@ import cookieToken from "../utils/cookieToken.js";
 // user signup
 
 export const signup= async(req,res,next)=>{
+    const {tableName,data}=req.body;
+    
         try {
-            const {tableName,data}=req.body;
             const user=await prisma.user.createMany({
                 data:data,
                 skipDuplicates:true

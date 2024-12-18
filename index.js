@@ -7,8 +7,6 @@ import appConst from './constants/applicationConstants.js';
 import globalRateLimit from './middleware/globalRateLimiter.js';
 
 const app =express();
-
-
 app.use(globalRateLimit);
 
 //regular middleware
