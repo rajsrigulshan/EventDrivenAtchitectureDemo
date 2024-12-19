@@ -1,7 +1,15 @@
-import Joi from "joi"
+import validateUser from "../utils/validation.js";
 
-const dataValidation=(data,tableName)=>{
-        const joiSchema=Joi.object({
-            
-        });
+
+const dataValidation=(tableName,data)=>{
+        if(tableName === "User"){
+                const validationResult=validateUser(data);
+                if(validationResult)
+                {
+                        console.log("ERROR IS : ",validationResult);
+                        return validationResult;
+                }
+                return null;
+        }
 }
+export default dataValidation;
