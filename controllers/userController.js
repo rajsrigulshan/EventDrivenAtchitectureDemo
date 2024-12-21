@@ -1,21 +1,23 @@
 // bring in the prisma and cookie
 import prisma from "../prisma/index.js";
 import cookieToken from "../utils/cookieToken.js";
-import dataValidation from "../helper/dataValidation.js";
+import dataFilterAndValidation from "../helper/dataValidation.js";
 
 // user signup
 
-export const signup= async(req,res,next)=>{
+export const signup= async(req,res)=>{
     const {tableName,data}=req.body;
     // Handle error gracefully ------   tomorrow starting point.
-    const validationRes=dataValidation(tableName,data);
-    if(validationRes){
-        throw new Error(validationRes);
-    }
-    
+    const {validArray,invalidArray}=dataFilterAndValidation(tableName,data);
+    invalidArray.forEach(item => {
+        console.log(JSON.stringify(item, null, 2));
+      });
+      
+    console.log("VALID_DATA: ",validArray);
+   
         try {
             const user=await prisma.user.createMany({
-                data:data,
+                data:validArray,
                 skipDuplicates:true
                 
             });
@@ -28,6 +30,10 @@ export const signup= async(req,res,next)=>{
                 // user
             })
         } catch (error) {
-            throw new Error(error);
+            console.log(error);
+            res.status(400).json({
+                success:false,
+                messege:"Invalid data"
+            });
         }
 }
