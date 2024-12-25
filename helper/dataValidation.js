@@ -2,6 +2,7 @@ import validateUser from "../utils/validation.js";
 
 
 const dataFilterAndValidation=(tableName,data)=>{
+        console.log("filter data called...")
         if(tableName=="User"){
                 const invalidData=[];
                 const validData=[];
@@ -22,6 +23,11 @@ const dataFilterAndValidation=(tableName,data)=>{
                         invalidArray:invalidData
                 }
         }
+        console.log("NO TABLES MATCHED....")
+        return {
+                validArray:[],
+                invalidArray:[]  
+        };
 
         // if(tableName === "User"){
         //         const validationResult=validateUser(data);
@@ -32,5 +38,5 @@ const dataFilterAndValidation=(tableName,data)=>{
         //         }
         //         return null;
         // }
-}
+};
 export default dataFilterAndValidation;
