@@ -9,6 +9,11 @@ export const signup =  async(req, res) => {
 
     const { tableName, data } = req.body;
     // Handle error gracefully ------   tomorrow starting point.
+
+    // ------------initiating batch processing-------
+
+
+    
     const { validArray, invalidArray } = dataFilterAndValidation(tableName, data);
 
     invalidArray.forEach(item => {
