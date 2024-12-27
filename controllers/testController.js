@@ -39,7 +39,7 @@ export const generateTestData=(req,res)=>{
         //const response=new Response();
         res.status(200).json({
             Success:true,
-            jsonArray
+            
 
         });
 }

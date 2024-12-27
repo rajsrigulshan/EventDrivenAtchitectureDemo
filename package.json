@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "db reset": "npx prisma migrate reset"
+    "dbReset": "npx prisma migrate reset"
   },
   "keywords": [
     "EDA",
