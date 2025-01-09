@@ -7,7 +7,7 @@ export const generateTestData=(req,res)=>{
         console.log("Generating Test Data....")
         console.log("TIME: "+Date.now())
         const jsonArray=[];
-        for(let i=0;i<100000;i++){
+        for(let i=0;i<300000;i++){
             const jsonObj={
                 name:faker.person.fullName(),
                 email:faker.internet.email(),
