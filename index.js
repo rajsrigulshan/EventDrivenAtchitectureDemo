@@ -6,6 +6,7 @@ import generateDataRouter from './routes/testRoutes.js';
 import appConst from './constants/applicationConstants.js';
 import globalRateLimit from './middleware/globalRateLimiter.js';
 import prisma from './prisma/index.js';
+import Queue from 'queue';
 const app =express();
 app.use(globalRateLimit);
 

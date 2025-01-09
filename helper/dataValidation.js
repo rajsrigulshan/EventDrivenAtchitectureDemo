@@ -1,7 +1,7 @@
 import validateUser from "../utils/validation.js";
 
 
-const dataFilterAndValidation=(tableName,data)=>{
+const dataFilterAndValidation= (tableName,data)=>{
         console.log("filter data called...")
         if(tableName=="User"){
                 const invalidData=[];
